@@ -1,42 +1,14 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { configureStore } from './store'
+import Router from './router';
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (
-      <Card>
-        <CardSection>
-          <Input
-            placeholder="user@gmail.com"
-            label="Email"
-          />
-        </ CardSection>
-
-        <CardSection>
-          <Input
-            secureTextEntry
-            placeholder="password"
-            label="Password"
-            />
-        </ CardSection>
-
-        <Text >
-
-        </ Text>
-
-        <CardSection>
-
-        </CardSection>
-      </Card>
+      <Provider store={configureStore()}>
+        <Router />
+      </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
